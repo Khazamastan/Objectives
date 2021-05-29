@@ -1,0 +1,102 @@
+.tree{
+  &__user {
+    margin: 0 10px;
+  }
+  &__arrow {
+    width: 15px;
+    height: 15px;
+  }
+  .tree-parent{
+    &__label {
+      padding: 20px 0 0px 0;
+      display: flex;
+      align-items: flex-start;
+      & > span {
+        cursor: pointer;
+        margin-left: 15px;
+        font-weight: 500;
+      }
+      &__number{
+        color: #757575;
+        font-weight: 500;
+      }
+    }
+    .tree-child {
+      padding-left: 0;
+      list-style-type: lower-alpha;
+      transition: all 0.3s ease-in-out; 
+      margin: 10px 0;
+      &.close {
+        display: none;
+      }
+      .child-container {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        padding-left: 35px;
+
+        &__label{
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 400;
+        }
+        &:first-child {
+          background: transparent;
+        }
+        
+        &:first-child::after {
+          display: none;
+        }
+        
+        &:first-child::before {
+          padding: 20px 0;
+        }
+        
+        &:nth-child(even) {
+          background-color: #f9f9f9;
+        }
+        
+        &::marker {
+          display: block;
+          content: "";
+          width: 30px;
+          border-left: 2px solid #dddfe4;
+          padding: 50px 0;
+        }
+        
+        &::before {
+          display: block;
+          content: "";
+          width: 30px;
+          border-left: 2px solid #dddfe4;
+          padding: 50px 0;
+        }
+        
+        &::after {
+          display: block;
+          content: "";
+          width: 15px;
+          border-bottom: 2px solid #dddfe4;
+          margin: 0;
+          position: absolute;
+          top: 30%;
+        }
+
+        &__content {
+          display: inline-flex;
+          align-items: flex-start;
+          text-align: left;
+          padding-top: 24px;
+         & > li {
+            margin-left: 15px;
+            &::marker{
+              color: #757575;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+    
+  }
+}
