@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import ChildObjective from './ChildObjective';
 
 const ParentObjective = ({
-  children, title, idx, collapse,
+  children, title, collapse,
 }) => {
   const [openTree, setOpenTree] = useState(true);
   const toggleOpen = () => {
@@ -25,25 +25,25 @@ const ParentObjective = ({
   const childrenClsList = `tree-child ${openTree ? 'open' : 'close'}`;
   return (
     <div className="tree-parent">
-      <p className="tree-parent__label">
-        <FontAwesomeIcon
-          className="tree__arrow"
-          onClick={toggleOpen}
-          color="##a2a3a5"
-          fixedWidth
-          icon={openTree ? faCaretDown : faCaretRight}
-        />
-        <FontAwesomeIcon
-          className="tree__user"
-          color="#dddfe4"
-          icon={faUserCircle}
-        />
-        <span role="link" onClick={toggleOpen}>
-          <span className="tree-parent__label__number">{idx + 1}</span>
-          .
-          <span className="ml-5">{title}</span>
-        </span>
-      </p>
+      <div className="tree-parent__label">
+        <div className="tree-parent__actions">
+          <FontAwesomeIcon
+            className="tree__arrow"
+            onClick={toggleOpen}
+            color="##a2a3a5"
+            fixedWidth
+            icon={openTree ? faCaretDown : faCaretRight}
+          />
+          <FontAwesomeIcon
+            className="tree__user"
+            color="#dddfe4"
+            icon={faUserCircle}
+          />
+        </div>
+        <li role="link" onClick={toggleOpen}>
+          <span>{title}</span>
+        </li>
+      </div>
       <ol className={childrenClsList}>
         <div className="child-container" />
         {children.map((childObjective) => (
@@ -67,7 +67,6 @@ ParentObjective.propTypes = {
     PropTypes.any,
   ]).isRequired,
   title: PropTypes.string.isRequired,
-  idx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   collapse: PropTypes.bool.isRequired,
 };
 

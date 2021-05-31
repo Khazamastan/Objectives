@@ -1,4 +1,13 @@
-.tree{
+.tree {
+  padding: 0;
+  li{
+    text-align: left;
+    &::marker{
+      color: #757575;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+  }
   &__user {
     margin: 0 10px;
   }
@@ -7,10 +16,17 @@
     height: 15px;
   }
   .tree-parent{
+    &__actions{
+      display: flex;
+      margin-right: 35px;
+    }
     &__label {
       padding: 20px 0 0px 0;
       display: flex;
       align-items: flex-start;
+      > li {
+        list-style-type: decimal;
+      }
       & > span {
         cursor: pointer;
         margin-left: 15px;
@@ -34,7 +50,6 @@
         display: flex;
         align-items: flex-start;
         padding-left: 35px;
-
         &__label{
           cursor: pointer;
           font-size: 14px;
@@ -67,7 +82,7 @@
         &::before {
           display: block;
           content: "";
-          width: 30px;
+          min-width: 25px;
           border-left: 2px solid #dddfe4;
           padding: 50px 0;
         }
@@ -89,10 +104,6 @@
           padding-top: 24px;
          & > li {
             margin-left: 15px;
-            &::marker{
-              color: #757575;
-              font-weight: 500;
-            }
           }
         }
       }

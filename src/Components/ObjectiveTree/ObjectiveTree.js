@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ParentObjective from './ParentObjective';
 
 const ObjectiveTree = ({ groupedList, collapse }) => (
-  <div className="tree">
+  <ul className="tree">
     {groupedList.map((parentObjective, idx) => (
       <ParentObjective
         key={parentObjective.id}
@@ -14,7 +14,7 @@ const ObjectiveTree = ({ groupedList, collapse }) => (
         {...parentObjective}
       />
     ))}
-  </div>
+  </ul>
 );
 
 ObjectiveTree.defaultProps = {
